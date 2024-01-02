@@ -6,6 +6,7 @@ import SignIn from "../SignIn";
 import Home from "../Home";
 import NotFound from "../NotFound";
 import Navbar from "../../Components/Navbar";
+import { ShoppiProvider } from "../../Components/Context";
 import "./App.css";
 
 const AppRoutes = () => {
@@ -24,10 +25,12 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-      <Navbar />
-    </BrowserRouter>
+    <ShoppiProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+      </BrowserRouter>
+    </ShoppiProvider>
   );
 }
 

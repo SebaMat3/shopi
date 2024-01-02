@@ -1,10 +1,10 @@
+import Layout from "../../Components/Layout";
+
 function SignIn() {
     return (
-      <>
-        <div className='bg-yellow-200'>
+        <Layout>
           Sign In
-        </div>
-      </>
+        </Layout>
     )
 }
 

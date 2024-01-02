@@ -1,11 +1,11 @@
+import Layout from "../../Components/Layout";
+
 function MyAccount() {
-    return (
-      <>
-        <div className='bg-black-200'>
-          My Account
-        </div>
-      </>
-    )
+  return (
+    <Layout>
+      My Account
+    </Layout>
+  )
 }
 
-export default MyAccount
+export default MyAccount;
