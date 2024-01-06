@@ -1,4 +1,5 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
+import { ShoppiProvider } from "../../Components/Context";
 import MyAccount from "../MyAccount";
 import MyOrder from "../MyOrder";
 import MyOrders from "../MyOrders";
@@ -6,7 +7,7 @@ import SignIn from "../SignIn";
 import Home from "../Home";
 import NotFound from "../NotFound";
 import Navbar from "../../Components/Navbar";
-import { ShoppiProvider } from "../../Components/Context";
+import CheckoutSideMenu from "../../Components/CheckoutSideMenu";
 import "./App.css";
 
 const AppRoutes = () => {
@@ -29,6 +30,7 @@ const App = () => {
       <BrowserRouter>
         <AppRoutes />
         <Navbar />
+        <CheckoutSideMenu/>
       </BrowserRouter>
     </ShoppiProvider>
   );

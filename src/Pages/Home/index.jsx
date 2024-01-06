@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Layout from "../../Components/Layout";
 import Card from "../../Components/Card";
+import ProductDetails from "../../Components/ProductDetails";
+
 
 function Home() {
   //States to hold the request values
@@ -23,6 +25,7 @@ function Home() {
           ))
         }
       </div>
+      <ProductDetails/>
     </Layout>
   );
 }
