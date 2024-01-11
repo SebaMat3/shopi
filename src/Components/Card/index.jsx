@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import { ShoppiContext } from "../Context";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import { CheckIcon } from "@heroicons/react/24/solid";
+
+
 
 
 const Card = (data) => {
@@ -13,15 +16,30 @@ const Card = (data) => {
         context.closeSideMenu();
     } 
     const addProductToCart = (Event, productData) => {
-        console.log(Event, productData);
-        //context.setCartProducts(push.cartProducts(productData))
         Event.stopPropagation(); // avoids event propagation to main div (openProductDetails())
         context.setCartProducts([...context.cartProducts, productData]);
         context.setCount(context.count + 1);
         context.closeProductDetails();       
         context.openSideMenu();
     }
-    
+    const renderIcon = (id) => {
+        const isInCart = context.cartProducts.filter(product => product.id === id).length > 0;
+
+            if (isInCart) {
+                return (
+                    <CheckIcon 
+                    className='h-6 w-6 hover:bg-blue-500 absolute flex top-0 right-0 justify-center items-center rounded-full m-1'
+                />)
+            } else {
+                return (
+                <PlusCircleIcon 
+                className='h-6 w-6 hover:bg-blue-500 absolute flex top-0 right-0 justify-center items-center rounded-full m-1'
+                onClick={(Event)=> { 
+                    addProductToCart(Event, data.data);
+                }}/>
+                )
+            }      
+    }
 	return (
         <div className='bg-white cursor-pointer w-56 h-60 rounded-lg'
             onClick={()=> openProduct(data.data)}>
@@ -30,12 +48,9 @@ const Card = (data) => {
                     {data.data?.category?.name}
                 </figcaption>
                 <img className='w-full h-full object-cover rounded-lg' src={data.data?.images[0]} alt={data.data?.title} />
-               
-                    <PlusCircleIcon 
-                        className='h-6 w-6 hover:bg-blue-500 absolute flex top-0 right-0 justify-center items-center rounded-full m-1'
-                        onClick={(Event)=> { 
-                            addProductToCart(Event, data.data);
-                        }}/>
+                
+                {renderIcon(data.data?.id)}
+
             </figure>
             <p className='flex justify-between'>
                 <span className='text-sm font-light'>

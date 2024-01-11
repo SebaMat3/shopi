@@ -6,10 +6,10 @@ export const ShoppiProvider = ({ children }) => {
     //Shopping Cart – Increment quantity
     const [count, setCount] = useState(0);
     console.log('COUNT:' + count);
-
     //Shopping Cart – Add to cart
-    const [cartProducts, setCartProducts] = useState([])
-
+    const [cartProducts, setCartProducts] = useState([]);
+    //Shopping Cart – Order
+    const [order, setOrder] = useState([]);
     // Cards - Which product details 
     const [productToShow, setProductToShow] = useState({});
     //Product Details – Close/Open 
@@ -37,7 +37,9 @@ export const ShoppiProvider = ({ children }) => {
             productToShow,
             setProductToShow,
             cartProducts, 
-            setCartProducts
+            setCartProducts,
+            order,
+            setOrder
         }}
         >
             {children}
