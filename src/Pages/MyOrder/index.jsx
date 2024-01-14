@@ -21,7 +21,7 @@ function MyOrder() {
         <Link to={'/my-orders'}>
           <ChevronLeftIcon className="absolute left-0 w-5 h-5 text-black rounded-full hover:bg-red-600 cursor-pointer"/>
         </Link>
-        <h1>My Order</h1>
+        <h1 className='font-medium text-xl'>My Order</h1>
       </div>
       <div className='flex flex-col w-80'>
                 {

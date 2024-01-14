@@ -10,7 +10,7 @@ function MyOrders() {
   return (
     <Layout>
       <div className="w-80 relative flex items-center mb-4 justify-center">
-        <h1 className='' >My Orders</h1>
+        <h1 className='font-medium text-xl' >My Orders</h1>
       </div>
       {
         context.order?.map((order, index) => (
@@ -20,7 +20,7 @@ function MyOrders() {
               totalProducts = {order.quantity}
               totalPrice = {order.total}
               products = {order.products}
-          />
+            />
           </Link>
         ))
       }

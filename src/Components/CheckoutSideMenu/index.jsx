@@ -13,7 +13,7 @@ const CheckoutSideMenu = () => {
     const handleDelete = (id) => {
         const updatedCart = context.cartProducts.filter(product => product.id != id);
         context.setCartProducts(updatedCart);
-    }
+    };  
     const handleCheckout = ( order ) => {
         const orderToSave = {
             date : new Date().toLocaleDateString(),
@@ -22,12 +22,13 @@ const CheckoutSideMenu = () => {
             quantity : order.length,
             id: crypto.randomUUID()
 
-        }
+        };
         context.setOrder([...context.order, orderToSave]);
         context.setCartProducts([]);
         context.setCount(0);
-        context.closeSideMenu() 
-    }
+        context.closeSideMenu();
+        context.setSearchByTitle(null);
+    };
     return (
         <aside className={`${context.isSideMenuOpen ? 'flex':'hidden'} flex-col  bg-white fixed right-0 border border-black rounded-lg top-[69px] w-[360px] h-[calc(100vh-68px)]`}>
             <div className='flex justify-between items-center p-6'>
@@ -48,7 +49,7 @@ const CheckoutSideMenu = () => {
                             handleDelete={handleDelete}
                         />
                     ))
-                }
+                };
             </div>
             <div className='px-6 mb-6'>
                 <p className='flex justify-between items-center mb-2'>
@@ -64,7 +65,7 @@ const CheckoutSideMenu = () => {
             </div>
         </aside>
     )
-}
+};
 
 
 export default CheckoutSideMenu;
